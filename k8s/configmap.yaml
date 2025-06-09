@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ghost-protocol-config
+  namespace: ghost-protocol
+data:
+  # Container settings
+  DELAY_MIN: "0.5"
+  DELAY_MAX: "1.0"
+  MAX_WORKERS: "4"
+  BATCH_SIZE: "100"
+  
+  # S3 settings (optional)
+  S3_BUCKET: ""
+  S3_PREFIX: "ghost-protocol-data"
+  
+  # Notification settings
+  SLACK_WEBHOOK: ""
+  NOTIFICATION_INTERVAL: "500"

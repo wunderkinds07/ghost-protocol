@@ -1,0 +1,58 @@
+{
+  "url": "https://www.1stdibs.com/furniture/tables/dining-room-tables/italian-marble-dining-table-oval-1970s/id-f_28765432/",
+  "extraction_status": "success",
+  "data": {
+    "product_info": {
+      "title": "1934 Americas Cup Yacht Rainbow Half Model",
+      "description": "Fine carved wood half model of the 1934 Americas Cup Yacht Rainbow. Planked deck with brass fittings. Mahogany skylights with brass bars. Ships wheel on turned brass base, rail, etc.. Mounted to a mahogany backboards. Lifeboat mounted to stern.",
+      "product_id": "f_28765432",
+      "brand": "",
+      "availability": "http://schema.org/InStock"
+    },
+    "specifications": {
+      "period": "1930-1939",
+      "category": "Models and Miniatures",
+      "condition": "UsedCondition",
+      "materials": "Mahogany, Brass, Wood"
+    },
+    "pricing": {
+      "currency": "USD",
+      "price": "895",
+      "multi_currency": {
+        "CHF": 750.54,
+        "AUD": 1405.76,
+        "MXN": 17444.88,
+        "EUR": 800.75,
+        "GBP": 674.82,
+        "DKK": 5976.53,
+        "CAD": 1250.35,
+        "USD": 895,
+        "SEK": 8804.46,
+        "NOK": 9233.25
+      }
+    },
+    "images": [
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale/f_17412/f_287654321653185199651/f_28765432_1653185199957_bg_processed.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-2/f_17412/f_287654321653185209422/1934_Americas_Cup_Yacht_Rainbow_Half_Model_1_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-3/f_17412/f_287654321653185209976/1934_Americas_Cup_Yacht_Rainbow_Half_Model_2_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-4/f_17412/f_287654321653185209688/1934_Americas_Cup_Yacht_Rainbow_Half_Model_3_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-5/f_17412/f_287654321653185209974/1934_Americas_Cup_Yacht_Rainbow_Half_Model_4_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-6/f_17412/f_287654321653185210002/1934_Americas_Cup_Yacht_Rainbow_Half_Model_5_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-7/f_17412/f_287654321653185210455/1934_Americas_Cup_Yacht_Rainbow_Half_Model_6_master.jpg",
+      "https://a.1stdibscdn.com/1934-americas-cup-yacht-rainbow-half-model-for-sale-picture-8/f_17412/f_287654321653185211133/1934_Americas_Cup_Yacht_Rainbow_Half_Model_7_master.jpg"
+    ],
+    "category_breadcrumb": [
+      "Home",
+      "Furniture",
+      "More Furniture and Collectibles",
+      "Collectibles and Curiosities",
+      "Models and Miniatures"
+    ]
+  },
+  "extraction_metadata": {
+    "container_id": "test-1",
+    "extraction_time": "2025-06-09T01:28:22.670442",
+    "html_size_bytes": 1001554,
+    "product_id": "f_28765432"
+  }
+}

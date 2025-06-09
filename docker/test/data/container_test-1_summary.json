@@ -1,0 +1,11 @@
+{
+  "container_id": "test-1",
+  "processing_time": "2025-06-09T01:26:07.981361",
+  "urls_processed": 5,
+  "successful": 1,
+  "failed": 4,
+  "chunk_range": "0-5",
+  "success_rate": "20.0%",
+  "elapsed_seconds": 8.624147891998291,
+  "urls_per_minute": 34.78604538755044
+}

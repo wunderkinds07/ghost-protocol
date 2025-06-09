@@ -1,0 +1,74 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ghost-protocol-chunk-CHUNK_ID
+  namespace: ghost-protocol
+  labels:
+    app: ghost-protocol
+    chunk-id: "CHUNK_ID"
+    region: "REGION"
+spec:
+  # Don't restart on failure - let the job fail and we can debug
+  backoffLimit: 0
+  # Clean up completed jobs after 1 hour
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app: ghost-protocol
+        chunk-id: "CHUNK_ID"
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: ghost-protocol-processor
+        image: ghost-protocol:latest
+        imagePullPolicy: Always
+        
+        env:
+        - name: CHUNK_ID
+          value: "CHUNK_ID"
+        - name: REGION
+          value: "REGION"
+        - name: URLS_FILE
+          value: "/app/data/urls_chunk.txt"
+        - name: OUTPUT_DIR
+          value: "/app/data/output"
+        
+        # Import config from ConfigMap
+        envFrom:
+        - configMapRef:
+            name: ghost-protocol-config
+        
+        # Resource limits
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        
+        # Volume mounts
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
+        - name: urls-volume
+          mountPath: /app/data/urls_chunk.txt
+          subPath: urls_chunk_CHUNK_ID.txt
+          
+        # Health checks
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "test -f /app/data/output/alive.txt || touch /app/data/output/alive.txt"
+          initialDelaySeconds: 30
+          periodSeconds: 60
+          
+      volumes:
+      - name: data-volume
+        emptyDir: {}
+      - name: urls-volume
+        configMap:
+          name: ghost-protocol-urls-CHUNK_ID

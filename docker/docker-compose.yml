@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Container 1: URLs 0-4999
+  extractor-1:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: 1stdibs-extractor-1
+    environment:
+      - CONTAINER_ID=1
+      - URL_CHUNK_START=0
+      - URL_CHUNK_SIZE=5000
+    volumes:
+      - ./data/container1:/app/data
+      - ../1m-urls-1stdibs-raw.txt:/app/data/urls_chunk.txt:ro
+    restart: unless-stopped
+
+  # Container 2: URLs 5000-9999
+  extractor-2:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: 1stdibs-extractor-2
+    environment:
+      - CONTAINER_ID=2
+      - URL_CHUNK_START=5000
+      - URL_CHUNK_SIZE=5000
+    volumes:
+      - ./data/container2:/app/data
+      - ../1m-urls-1stdibs-raw.txt:/app/data/urls_chunk.txt:ro
+    restart: unless-stopped
+
+  # Container 3: URLs 10000-14999
+  extractor-3:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: 1stdibs-extractor-3
+    environment:
+      - CONTAINER_ID=3
+      - URL_CHUNK_START=10000
+      - URL_CHUNK_SIZE=5000
+    volumes:
+      - ./data/container3:/app/data
+      - ../1m-urls-1stdibs-raw.txt:/app/data/urls_chunk.txt:ro
+    restart: unless-stopped
+
+  # Add more containers as needed...

@@ -1,0 +1,14 @@
+{
+  "extraction_config": {
+    "delay_range": [0.5, 1.0],
+    "max_workers": 4,
+    "timeout": 30,
+    "retry_attempts": 3
+  },
+  "storage_config": {
+    "compress_html": true,
+    "save_images": false,
+    "output_format": "json"
+  },
+  "urls": []
+}

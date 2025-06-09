@@ -1,0 +1,153 @@
+# Kubernetes Dashboard setup for Ghost Protocol
+# Use this in the Kubernetes Dashboard GUI
+
+---
+# 1. First create the namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ghost-protocol
+  labels:
+    name: ghost-protocol
+    app: ghost-protocol
+
+---
+# 2. ConfigMap for application settings
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ghost-protocol-config
+  namespace: ghost-protocol
+data:
+  DELAY_MIN: "0.5"
+  DELAY_MAX: "1.0"
+  MAX_WORKERS: "4"
+  BATCH_SIZE: "100"
+  S3_BUCKET: ""
+  S3_PREFIX: "ghost-protocol-data"
+  SLACK_WEBHOOK: ""
+  NOTIFICATION_INTERVAL: "500"
+
+---
+# 3. ConfigMap for sample URLs (replace with your URLs)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ghost-protocol-urls-demo
+  namespace: ghost-protocol
+data:
+  urls_chunk.txt: |
+    https://www.1stdibs.com/furniture/seating/benches/mid-century-modern-wooden-bench-unknown-danish-cabinetmaker-1960s/id-f_31310552/
+    https://www.1stdibs.com/furniture/seating/chairs/mid-century-modern-stacking-chairs-verner-panton-herman-miller-1960s/id-f_1234567/
+    https://www.1stdibs.com/furniture/tables/dining-room-tables/italian-modern-dining-table-carlo-scarpa-1970s/id-f_2345678/
+    https://www.1stdibs.com/furniture/storage-case-pieces/cabinets/danish-modern-teak-cabinet-arne-vodder-1960s/id-f_3456789/
+    https://www.1stdibs.com/furniture/lighting/floor-lamps/italian-arc-floor-lamp-achille-castiglioni-flos-1962/id-f_4567890/
+
+---
+# 4. Job for processing URLs (REPLACE ECR_URI with your actual ECR URI)
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ghost-protocol-demo-job
+  namespace: ghost-protocol
+  labels:
+    app: ghost-protocol
+    job-type: demo
+spec:
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app: ghost-protocol
+        job-type: demo
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: ghost-protocol-processor
+        # IMPORTANT: Replace this with your actual ECR URI
+        # Format: YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/ghost-protocol:latest
+        image: 123456789012.dkr.ecr.us-east-1.amazonaws.com/ghost-protocol:latest
+        imagePullPolicy: Always
+        
+        env:
+        - name: CHUNK_ID
+          value: "demo"
+        - name: URLS_FILE
+          value: "/app/data/urls_chunk.txt"
+        - name: CONTAINER_ID
+          value: "dashboard-demo"
+        - name: OUTPUT_DIR
+          value: "/app/data/output"
+        
+        # Import config from ConfigMap
+        envFrom:
+        - configMapRef:
+            name: ghost-protocol-config
+        
+        # Resource limits
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        
+        # Volume mounts
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data/output
+        - name: urls-volume
+          mountPath: /app/data/urls_chunk.txt
+          subPath: urls_chunk.txt
+          
+        # Health checks
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "test -f /app/data/output/alive.txt || touch /app/data/output/alive.txt"
+          initialDelaySeconds: 30
+          periodSeconds: 60
+          
+      volumes:
+      - name: data-volume
+        emptyDir: {}
+      - name: urls-volume
+        configMap:
+          name: ghost-protocol-urls-demo
+
+---
+# 5. Service for monitoring (optional)
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghost-protocol-monitor
+  namespace: ghost-protocol
+  labels:
+    app: ghost-protocol
+spec:
+  selector:
+    app: ghost-protocol
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP
+
+---
+# 6. PersistentVolumeClaim for storing results (optional)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ghost-protocol-storage
+  namespace: ghost-protocol
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: gp2

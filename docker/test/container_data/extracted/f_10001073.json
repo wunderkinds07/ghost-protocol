@@ -1,0 +1,62 @@
+{
+  "url": "https://www.1stdibs.com/furniture/mirrors/pier-mirrors-console-mirrors/italian-parcel-ebonized-walnut-mirror-18th-century-great-color-scale/id-f_10001073/",
+  "extraction_status": "success",
+  "data": {
+    "product_info": {
+      "title": "Italian Parcel Ebonized Walnut Mirror, 18th Century,  Great color and scale.",
+      "description": "An Italian parcel ebonized walnut mirror \n18th century \nof breakfront outline, the mirror plate of horizontal rectangular form and flanked by four columnar pilasters surmounted by baluster form finials. \nMeasures: Height 34 1/2 x width 48 inches.  Feel free to call or email with further questions.",
+      "product_id": "f_10001073",
+      "brand": "",
+      "availability": "http://schema.org/InStock"
+    },
+    "specifications": {
+      "period": "18th Century",
+      "category": "Pier Mirrors and Console Mirrors",
+      "condition": "UsedCondition",
+      "dimensions": {
+        "height": "34 1/2 inches",
+        "width": "48 inches"
+      },
+      "materials": "Walnut"
+    },
+    "pricing": {
+      "currency": "USD",
+      "price": "5400",
+      "multi_currency": {
+        "AUD": 8481.68,
+        "CHF": 4528.39,
+        "MXN": 105254.02,
+        "EUR": 4831.37,
+        "GBP": 4071.56,
+        "DKK": 36059.5,
+        "USD": 5400,
+        "CAD": 7544.03,
+        "SEK": 53121.91,
+        "NOK": 55709.01
+      }
+    },
+    "images": [
+      "https://a.1stdibscdn.com/archivesE/upload/1121189/f_100010731522656287725/10001073_master.jpg",
+      "https://a.1stdibscdn.com/an-italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-2/archivesE/upload/f_8199/f_100010731522526126959/IMG_8169_master.jpg",
+      "https://a.1stdibscdn.com/an-italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-3/archivesE/upload/f_8199/f_100010731522526148898/IMG_8170_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-4/f_8199/f_100010731581366983395/IMG_2961_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-5/f_8199/f_100010731581367019542/IMG_2962_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-6/f_8199/f_100010731581367040961/IMG_2963_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-7/f_8199/f_100010731581367062573/IMG_2966_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-8/f_8199/f_100010731581367086827/IMG_2967_master.jpg",
+      "https://a.1stdibscdn.com/italian-parcel-ebonized-walnut-mirror-18th-century-for-sale-picture-9/f_8199/f_100010731581367125962/IMG_2950_master.jpg"
+    ],
+    "category_breadcrumb": [
+      "Home",
+      "Furniture",
+      "Mirrors",
+      "Pier Mirrors and Console Mirrors"
+    ]
+  },
+  "extraction_metadata": {
+    "container_id": "test-1",
+    "extraction_time": "2025-06-09T01:28:18.448869",
+    "html_size_bytes": 996791,
+    "product_id": "f_10001073"
+  }
+}

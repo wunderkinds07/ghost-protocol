@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  processor:
+    build: .
+    container_name: ghost-local-test
+    environment:
+      - URLS_FILE=/app/urls_chunk.txt
+      - CONTAINER_ID=local-test-1
+      - OUTPUT_DIR=/app/data
+    volumes:
+      - ./data:/app/data
+      - ../test_chunks/urls_chunk_0001.txt:/app/urls_chunk.txt:ro
+    restart: unless-stopped

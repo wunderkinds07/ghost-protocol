@@ -1,0 +1,52 @@
+{
+  "url": "https://www.1stdibs.com/furniture/mirrors/wall-mirrors/italian-baroque-giltwood-mirror-18th-century/id-f_18765432/",
+  "extraction_status": "success",
+  "data": {
+    "product_info": {
+      "title": "Agatha Detect Place 20200419T07:48:27",
+      "description": "Test Description\n\nHelper vfour-four two five-zero",
+      "product_id": "f_18765432",
+      "brand": "Charles Eames",
+      "availability": ""
+    },
+    "specifications": {
+      "period": "1970-1979",
+      "category": "Dining Room Sets",
+      "condition": "UsedCondition"
+    },
+    "pricing": {
+      "currency": "USD",
+      "price": "10500",
+      "multi_currency": {
+        "AUD": 16492.15,
+        "CHF": 8805.19,
+        "MXN": 204660.6,
+        "EUR": 9394.33,
+        "GBP": 7916.92,
+        "DKK": 70115.69,
+        "USD": 10500,
+        "CAD": 14668.95,
+        "SEK": 103292.6,
+        "NOK": 108323.08
+      }
+    },
+    "images": [
+      "https://a.1stdibscdn.com/agatha-detect-place-20200419t074827-for-sale/f_40033/1587282507582/3cdc3ed7880f839c47955c146a3096aeb8eab4eb_master.jpg",
+      "https://a.1stdibscdn.com/agatha-detect-place-20200419t074827-for-sale-picture-2/f_40033/1587282507688/f8b59d9a895097126c1f1e8821903e0c79077d01_master.jpg",
+      "https://a.1stdibscdn.com/agatha-detect-place-20200419t074827-for-sale-picture-3/f_40033/1587282507673/d9965194df916c425846b1b3ef4502404f0d9a92_master.jpg",
+      "https://a.1stdibscdn.com/agatha-detect-place-20200419t074827-for-sale-picture-4/f_40033/1587282507788/664588b107c7331404ddc9f3276381fd608d699d_master.jpg"
+    ],
+    "category_breadcrumb": [
+      "Home",
+      "Furniture",
+      "Tables",
+      "Dining Room Sets"
+    ]
+  },
+  "extraction_metadata": {
+    "container_id": "test-1",
+    "extraction_time": "2025-06-09T01:28:20.326084",
+    "html_size_bytes": 789132,
+    "product_id": "f_18765432"
+  }
+}
